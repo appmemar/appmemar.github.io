@@ -25,6 +25,13 @@ div {
 
 /***** Social Media *****/
 
+.intro h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 200;
+    line-height: 1.2;
+}
+
 ul {
     padding:0;
     list-style: none;
