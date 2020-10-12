@@ -180,17 +180,28 @@ p {
 
 .intro h2 {
 	margin-bottom: 20px;
-	font-size: 28px;
-	font-weight: 200;
+	font-size: 25px;
+	font-weight: 100;
 	line-height: 1.2;
+}
+
+.intro h3 {
+    font-size: 19px;
+    font-weight: 50;
+    line-height: 1.2;
 }
 
 @media only screen and (min-width: 580px) {
 	.intro h2 {
-		font-size: 30px;
+		font-size: 25px;
 	}
 }
 
+@media only screen and (min-width: 580px) {
+    .intro h3 {
+        font-size: 20px;
+    }
+}
 .iphone {
 	position: relative;
 	max-width: 300px;
