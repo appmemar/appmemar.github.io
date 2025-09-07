@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Leaderboard - Compare Large Language Models</title>
+    <meta name="description" content="Compare and analyze performance metrics of various Large Language Models (LLMs). Get insights into model capabilities, benchmarks, and real-world applications.">
+    <meta name="keywords" content="LLM, Large Language Models, AI models, language models comparison, AI benchmarks, ChatGPT, GPT-4, machine learning, artificial intelligence">
+    <meta name="author" content="AppMemar">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="LLM Leaderboard - Compare Large Language Models">
+    <meta property="og:description" content="Compare and analyze performance metrics of various Large Language Models (LLMs). Get insights into model capabilities and benchmarks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appmemar.github.io/llm/">
+    <meta property="og:site_name" content="LLM Leaderboard">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LLM Leaderboard - Compare Large Language Models">
+    <meta name="twitter:description" content="Compare and analyze performance metrics of various Large Language Models (LLMs).">
+    <link rel="canonical" href="https://appmemar.github.io/llm/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "LLM Leaderboard - Compare Large Language Models",
+      "description": "Compare and analyze performance metrics of various Large Language Models (LLMs). Get insights into model capabilities, benchmarks, and real-world applications.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AppMemar",
+        "url": "https://appmemar.github.io"
+      },
+      "keywords": "LLM, Large Language Models, AI models, language models comparison, AI benchmarks, ChatGPT, GPT-4, machine learning, artificial intelligence"
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 25px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .chart-bars {
+            display: flex;
+            gap: 8px;
+            align-items: end;
+            justify-content: center;
+        }
+
+        .bar {
+            border-radius: 4px 4px 0 0;
+        }
+
+        .bar:nth-child(1) {
+            width: 16px;
+            height: 25px;
+            background: #4A90E2;
+        }
+
+        .bar:nth-child(2) {
+            width: 16px;
+            height: 35px;
+            background: #50D2C2;
+            position: relative;
+        }
+
+        .bar:nth-child(2)::after {
+            content: '👑';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+        }
+
+        .bar:nth-child(3) {
+            width: 16px;
+            height: 30px;
+            background: #B19CD9;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: #f8f9ff;
+            border: 1px solid #e1e8ff;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* App Preview */
+        .app-preview {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .app-preview h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .app-preview p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-mockup {
+            max-width: 300px;
+            margin: 0 auto;
+            background: #333;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features h2,
+            .app-preview h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .features,
+            .app-preview {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">LLM Leaderboard</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="app-icon">
+                <img src="appicon.png" alt="App icon" style="width: 100px; height: 100px; border-radius: 12px;">
+            </div>
+            <h1>LLM Leaderboard</h1>
+            <p>Compare and track Large Language Model performance with comprehensive rankings and real-time updates</p>
+            <a href="https://apps.apple.com/app/id6749963030" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1695772800" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;">
+            </a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Powerful Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Comprehensive Rankings</h3>
+                    <p>View models ranked by intelligence, coding, math, and other benchmarks with detailed performance metrics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Side-by-Side Comparison</h3>
+                    <p>Compare multiple models with detailed charts and metrics to make informed decisions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Advanced Filtering</h3>
+                    <p>Filter by provider, benchmark type, price range, and performance to find the perfect model</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Daily Updates</h3>
+                    <p>Automatically sync the latest model data and benchmarks to stay current with AI developments</p>
+                </div>
+                <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Smart Search</h3>
+        <p>Quickly find specific AI models or benchmarks using intuitive search functionality</p>
+    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Global Coverage</h3>
+                    <p>Includes models from top providers like OpenAI, Google, Anthropic, and more for a comprehensive view</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-preview" id="download">
+        <div class="container">
+            <h2>Stay Ahead of AI Progress</h2>
+            <p>Track the rapidly evolving world of Large Language Models with real-time performance data and comprehensive analysis</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <img src="leaderboard.jpg" alt="LLM Leaderboard App Interface" style="width: 100%; height: 100%; border-radius: 16px;">
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <img src="qr.png" alt="QR Code to download LLM Leaderboard" style="width: 200px; height: 200px; margin-bottom: 15px;">
+                    <p style="font-size: 1.1rem; color: #444; margin-top: 10px;">Scan to Download</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: #333;">What Users Say</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: #f8f9ff; border-radius: 20px; padding: 30px; border: 1px solid #e1e8ff;">
+                    <div style="color: #667eea; font-size: 24px; margin-bottom: 20px;">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 20px;">"This app has become my go-to resource for staying updated with the latest LLM developments. The comparison features are incredibly helpful!"</p>
+                    <div style="color: #333; font-weight: 600;">Sarah K.</div>
+                    <div style="color: #666; font-size: 0.9rem;">AI Researcher</div>
+                </div>
+                <div style="background: #f8f9ff; border-radius: 20px; padding: 30px; border: 1px solid #e1e8ff;">
+                    <div style="color: #667eea; font-size: 24px; margin-bottom: 20px;">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 20px;">"The detailed benchmarks and side-by-side comparisons make it so easy to choose the right model for my projects."</p>
+                    <div style="color: #333; font-weight: 600;">Michael T.</div>
+                    <div style="color: #666; font-size: 0.9rem;">Software Engineer</div>
+                </div>
+                <div style="background: #f8f9ff; border-radius: 20px; padding: 30px; border: 1px solid #e1e8ff;">
+                    <div style="color: #667eea; font-size: 24px; margin-bottom: 20px;">★★★★★</div>
+                    <p style="color: #666; margin-bottom: 20px;">"Love the daily updates and comprehensive analysis. It's perfect for keeping track of the fast-moving AI landscape."</p>
+                    <div style="color: #333; font-weight: 600;">Alex M.</div>
+                    <div style="color: #666; font-size: 0.9rem;">Tech Consultant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LLM Leaderboard</h3>
+                    <p style="color: #ccc;">Your ultimate tool for comparing and tracking Large Language Model performance.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <a href="privacypolicy.html">Privacy Policy</a>
+                    <a href="https://apps.apple.com/app/id6749963030">App Store</a>
+                    <a href="mailto:iappmemar@gmail.com?subject=LLM%20Leaderboard%20App">Contact Us</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 30px; color: #ccc;">
+                <p>&copy; 2025 AppMemar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
