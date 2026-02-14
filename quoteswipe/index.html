@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuoteSwipe - Daily Quotes & Inspiration</title>
+    <meta name="description"
+        content="Discover and share powerful quotes every day. Swipe through curated quotes across categories like business, motivation, love, and more with QuoteSwipe.">
+    <meta name="keywords"
+        content="quotes app, daily quotes, inspirational quotes, motivational quotes, quote swipe, share quotes, QuoteSwipe, AppMemar">
+    <meta name="author" content="AppMemar">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="QuoteSwipe - Daily Quotes & Inspiration">
+    <meta property="og:description"
+        content="Discover and share powerful quotes every day. Swipe through curated quotes across categories.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://appmemar.github.io/quoteswipe/">
+    <meta property="og:site_name" content="QuoteSwipe">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QuoteSwipe - Daily Quotes & Inspiration">
+    <meta name="twitter:description"
+        content="Discover and share powerful quotes every day. Swipe through curated quotes across categories.">
+    <link rel="canonical" href="https://appmemar.github.io/quoteswipe/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "QuoteSwipe - Daily Quotes & Inspiration",
+      "description": "Discover and share powerful quotes every day. Swipe through curated quotes across categories like business, motivation, love, and more with QuoteSwipe.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "AppMemar",
+        "url": "https://appmemar.github.io"
+      },
+      "keywords": "quotes app, daily quotes, inspirational quotes, motivational quotes, quote swipe, share quotes"
+    }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1b6b3a 0%, #0d4f2b 50%, #2d8a56 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: transparent;
+            border-radius: 25px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: none;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: #f8f9f5;
+            border: 1px solid #dde8d5;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(27, 107, 58, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1b6b3a, #2d8a56);
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* App Preview */
+        .app-preview {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .app-preview h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .app-preview p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-mockup {
+            max-width: 300px;
+            margin: 0 auto;
+            background: #333;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 600px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #2d8a56;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .features h2,
+            .app-preview h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .features,
+            .app-preview {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .app-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">QuoteSwipe</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="app-icon">
+                <img src="appicon.png" alt="QuoteSwipe icon"
+                    style="width: 120px; height: 120px; border-radius: 25px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);">
+            </div>
+            <h1>QuoteSwipe</h1>
+            <p>Discover powerful quotes every day. Swipe, share, and save words of wisdom across categories like
+                business, motivation, love, and more.</p>
+            <a href="https://apps.apple.com/app/id6741108732"
+                style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1695772800"
+                    alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;">
+            </a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why You'll Love QuoteSwipe</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📖</div>
+                    <h3>Curated Quotes</h3>
+                    <p>Browse a vast collection of handpicked quotes from renowned thinkers, leaders, and visionaries.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👆</div>
+                    <h3>Swipe to Explore</h3>
+                    <p>Effortlessly swipe through quotes to discover your next favorite. Every swipe brings a fresh
+                        perspective.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📂</div>
+                    <h3>Categories</h3>
+                    <p>Explore quotes across categories like Business, Motivation, Love, Life, and many more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Favorites</h3>
+                    <p>Save the quotes that resonate with you and revisit them anytime from your favorites collection.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📤</div>
+                    <h3>Share & Copy</h3>
+                    <p>Share inspiring quotes with friends and family via social media, or copy them with a single tap.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Stunning card-based UI with rich colors and smooth animations for a delightful reading
+                        experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-preview" id="download">
+        <div class="container">
+            <h2>Words That Inspire</h2>
+            <p>Swipe through beautifully designed quote cards and find the words that speak to you. Share wisdom with
+                the world.</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <img src="detail.jpg" alt="QuoteSwipe App Interface"
+                            style="width: 100%; height: 100%; border-radius: 16px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>QuoteSwipe</h3>
+                    <p style="color: #ccc;">Your daily companion for discovering and sharing powerful quotes.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links</h3>
+                    <a href="privacypolicy.html">Privacy Policy</a>
+                    <a href="https://apps.apple.com/app/id6741108732">App Store</a>
+                    <a href="mailto:iappmemar@gmail.com?subject=QuoteSwipe%20App">Contact Us</a>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #555; padding-top: 30px; color: #ccc;">
+                <p>&copy; 2025 AppMemar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
